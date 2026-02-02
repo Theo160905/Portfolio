@@ -10,6 +10,18 @@ body {
     background-color: #0E1624;
     color: #E5E7EB;
     line-height: 1.6;
+    position: relative;
+}
+
+/* Canvas de fond animé */
+#animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
 }
 
 html {
@@ -18,9 +30,11 @@ html {
 
 /* ================= HEADER ================= */
 header {
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.8);
+    backdrop-filter: blur(10px);
     padding: 40px;
     text-align: center;
+    position: relative;
 }
 
 header h1 {
@@ -35,7 +49,8 @@ header p {
 
 /* ================= NAV ================= */
 nav {
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.95);
+    backdrop-filter: blur(10px);
     padding: 15px;
     text-align: center;
     position: sticky;
@@ -55,7 +70,8 @@ nav a {
     display: inline-block;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     background-color: #60A5FA;
     color: #0E1624;
     transform: translateY(-2px);
@@ -66,6 +82,7 @@ main {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative;
 }
 
 .content-wrapper {
@@ -117,7 +134,8 @@ main {
 }
 
 .badge {
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.8);
+    backdrop-filter: blur(10px);
     color: #60A5FA;
     padding: 0.6rem 1.2rem;
     border-radius: 20px;
@@ -148,7 +166,8 @@ main {
 /* ================= DESCRIPTION SECTION ================= */
 .description-section {
     padding: 6rem 0;
-    background-color: rgba(18, 28, 46, 0.3);
+    background-color: rgba(18, 28, 46, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .description-content {
@@ -156,6 +175,14 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+}
+
+.description-text {
+    background-color: rgba(18, 28, 46, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #60A5FA;
 }
 
 .description-text h3 {
@@ -226,7 +253,8 @@ main {
 }
 
 .role-card {
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.8);
+    backdrop-filter: blur(10px);
     padding: 2.5rem;
     border-radius: 16px;
     border: 2px solid transparent;
@@ -260,7 +288,8 @@ main {
 /* ================= GALLERY SECTION ================= */
 .gallery-section {
     padding: 6rem 0;
-    background-color: rgba(18, 28, 46, 0.3);
+    background-color: rgba(18, 28, 46, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .gallery-grid {
@@ -347,6 +376,7 @@ main {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 10000;
 }
 
 .close:hover {
@@ -375,7 +405,8 @@ main {
 }
 
 .tech-card {
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.8);
+    backdrop-filter: blur(10px);
     padding: 2.5rem;
     border-radius: 16px;
     border-left: 4px solid #60A5FA;
@@ -433,7 +464,8 @@ main {
 /* ================= TEAM SECTION ================= */
 .team-section {
     padding: 6rem 0;
-    background-color: rgba(18, 28, 46, 0.3);
+    background-color: rgba(18, 28, 46, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .team-grid {
@@ -445,13 +477,16 @@ main {
 .team-member {
     text-align: center;
     padding: 2rem;
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.8);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
     transition: transform 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .team-member:hover {
     transform: translateY(-5px);
+    border-color: #60A5FA;
 }
 
 .member-avatar {
@@ -477,10 +512,11 @@ main {
 }
 
 .cta-content {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(167, 139, 250, 0.15) 100%);
+    backdrop-filter: blur(10px);
     padding: 4rem 2rem;
     border-radius: 20px;
-    border: 2px solid rgba(96, 165, 250, 0.2);
+    border: 2px solid rgba(96, 165, 250, 0.3);
 }
 
 .cta-content h2 {
@@ -528,17 +564,20 @@ main {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.8);
+    backdrop-filter: blur(10px);
     padding: 1.5rem;
     border-radius: 12px;
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .project-nav-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
+    border-color: #60A5FA;
 }
 
 .project-nav-card img {
@@ -571,6 +610,7 @@ main {
     justify-content: center;
     padding: 1rem 2rem;
     background-color: rgba(96, 165, 250, 0.1);
+    backdrop-filter: blur(10px);
     border: 2px solid #60A5FA;
     border-radius: 12px;
     text-decoration: none;
@@ -587,12 +627,14 @@ main {
 /* ================= FOOTER ================= */
 footer {
     width: 100%;
-    background-color: #121C2E;
+    background-color: rgba(18, 28, 46, 0.95);
+    backdrop-filter: blur(10px);
     padding: 30px 20px;
     text-align: center;
     color: #9CA3AF;
     margin-top: 4rem;
     border-top: 1px solid rgba(96, 165, 250, 0.2);
+    position: relative;
 }
 
 /* ================= ANIMATIONS ================= */
