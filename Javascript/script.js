@@ -22,7 +22,7 @@ function createAnimatedBackground() {
     const connectionDistance = 150;
     const colors = {
         particles: 'rgba(96, 165, 250, 0.6)',
-        lines: 'rgba(96, 165, 250, 0.15)'
+        lines: 'rgba(96, 165, 250, 0.3)'
     };
     
     // Redimensionnement du canvas
@@ -80,8 +80,8 @@ function createAnimatedBackground() {
                 if (distance < connectionDistance) {
                     const opacity = 1 - (distance / connectionDistance);
                     ctx.strokeStyle = colors.lines;
-                    ctx.globalAlpha = opacity * 0.3;
-                    ctx.lineWidth = 1;
+                    ctx.globalAlpha = opacity * 0.5;
+                    ctx.lineWidth = 3;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
